@@ -33,24 +33,41 @@ function DashboardPage({ session }) {
   const handleDreamSubmit = async (dreamText) => {
     setLoading(true)
     try {
-      const response = await fetch('/api/decode-dream', {
+      // Call the real AI Edge Function
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/decode-dream`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
           'x-user-id': session?.user?.id
         },
         body: JSON.stringify({ dream_text: dreamText })
       })
 
       if (!response.ok) {
-        throw new Error('Failed to decode dream')
+        const errorData = await response.text()
+        console.error('Edge Function error:', errorData)
+        throw new Error(`Failed to decode dream: ${response.status} ${response.statusText}`)
       }
 
       const dream = await response.json()
-      setCurrentDream(dream)
-      setActiveTab('result')
+
+      // Save to Supabase
+      const { data, error } = await supabase
+        .from('dreams')
+        .insert(dream)
+        .select()
+        .single()
+
+      if (error) {
+        console.error('Supabase error:', error)
+        // Still show the result even if save fails
+        setCurrentDream(dream)
+      } else {
+        setCurrentDream(data)
+      }
       
-      // Refresh dream history
+      setActiveTab('result')
       await fetchDreamHistory()
     } catch (error) {
       console.error('Error submitting dream:', error)
@@ -116,7 +133,7 @@ function DashboardPage({ session }) {
             {activeTab === 'input' && (
               <DreamInput onSubmit={handleDreamSubmit} loading={loading} />
             )}
-
+            
             {activeTab === 'result' && currentDream && (
               <DreamResult dream={currentDream} />
             )}
@@ -124,17 +141,17 @@ function DashboardPage({ session }) {
             {activeTab === 'history' && (
               <div className="space-y-6">
                 <h2 className="text-2xl font-bold">Your Dream History</h2>
-                
+
                 {dreamHistory.length === 0 ? (
                   <div className="card text-center py-12">
                     <p className="text-dark-400 mb-4">No dreams recorded yet.</p>
-                    <button
+                <button
                       onClick={() => setActiveTab('input')}
                       className="btn-primary"
-                    >
+                >
                       Share Your First Dream
-                    </button>
-                  </div>
+                </button>
+              </div>
                 ) : (
                   <div className="space-y-4">
                     {dreamHistory.map((dream) => (
@@ -167,15 +184,15 @@ function DashboardPage({ session }) {
                       </div>
                     ))}
                   </div>
-                )}
-              </div>
-            )}
-          </div>
+                  )}
+                </div>
+              )}
+            </div>
 
           {/* Right Column - Emotion Graph */}
           <div className="space-y-8">
             <EmotionGraph session={session} />
-            
+
             {/* Quick Stats */}
             <div className="card">
               <h3 className="text-xl font-semibold mb-4">Quick Stats</h3>
@@ -199,20 +216,20 @@ function DashboardPage({ session }) {
                   <div className="flex justify-between items-center">
                     <span className="text-dark-400">Most Common Mood:</span>
                     <span className="text-white font-semibold">
-                      {(() => {
-                        const moodCounts = {}
-                        dreamHistory.forEach(dream => {
+                    {(() => {
+                      const moodCounts = {}
+                      dreamHistory.forEach(dream => {
                           const mood = dream.mood || dream.interpretation_json?.mood
                           if (mood) {
                             moodCounts[mood] = (moodCounts[mood] || 0) + 1
-                          }
-                        })
-                        const mostCommon = Object.entries(moodCounts)
-                          .sort(([,a], [,b]) => b - a)[0]
-                        return mostCommon ? mostCommon[0] : 'N/A'
-                      })()}
-                    </span>
-                  </div>
+                        }
+                      })
+                      const mostCommon = Object.entries(moodCounts)
+                        .sort(([,a], [,b]) => b - a)[0]
+                      return mostCommon ? mostCommon[0] : 'N/A'
+                    })()}
+                  </span>
+                </div>
                 )}
               </div>
             </div>

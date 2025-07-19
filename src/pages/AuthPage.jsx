@@ -86,7 +86,7 @@ function AuthPage() {
                 },
               },
             }}
-            providers={['google', 'github']}
+            providers={[]}
             redirectTo={window.location.origin + '/dashboard'}
           />
         </div>

@@ -64,19 +64,19 @@ function HomePage() {
               comprehensive dream analysis that goes beyond surface interpretation.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {/* Feature 1 */}
             <div className="card text-center">
                           <div className="w-16 h-16 bg-primary-500/20 rounded-xl flex items-center justify-center mx-auto mb-6">
               <AcademicCapIcon className="w-8 h-8 text-primary-400" />
-            </div>
+              </div>
             <h3 className="text-xl font-semibold mb-4">Psychological Analysis</h3>
               <p className="text-dark-400">
                 Deep psychological insights based on modern dream psychology and subconscious patterns.
               </p>
             </div>
-            
+
             {/* Feature 2 */}
             <div className="card text-center">
               <div className="w-16 h-16 bg-gold-500/20 rounded-xl flex items-center justify-center mx-auto mb-6">
@@ -87,7 +87,7 @@ function HomePage() {
                 Explore the spiritual and metaphysical meanings behind your dream symbols and experiences.
               </p>
             </div>
-            
+
             {/* Feature 3 */}
             <div className="card text-center">
               <div className="w-16 h-16 bg-primary-500/20 rounded-xl flex items-center justify-center mx-auto mb-6">
