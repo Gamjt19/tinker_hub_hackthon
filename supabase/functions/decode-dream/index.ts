@@ -134,28 +134,22 @@ Dream to analyze: ${dream_text}`
     // Generate appropriate dream-themed images based on mood and symbols
     const dreamImages = {
       'Anxious': [
-        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&sat=-50&brightness=30',
-        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&contrast=50&brightness=40'
+        'https://dreamterpretation.com/wp-content/uploads/2024/06/interpreting_anxiety_through_dreams.jpg'
       ],
       'Happy': [
-        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&sat=50&brightness=20',
-        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&hue=60&brightness=15'
-      ],
+        'https://dreamterpretation.com/wp-content/uploads/2024/06/interpreting_anxiety_through_dreams.jpg'   
+         ],
       'Sad': [
-        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&sat=-30&brightness=40',
-        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&blur=1&brightness=35'
+        'https://dreamterpretation.com/wp-content/uploads/2024/06/interpreting_anxiety_through_dreams.jpg'
       ],
       'Peaceful': [
-        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&sat=20&brightness=10',
-        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&hue=240&brightness=5'
+        'https://dreamterpretation.com/wp-content/uploads/2024/06/interpreting_anxiety_through_dreams.jpg'
       ],
       'Confused': [
-        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&sat=-20&brightness=50',
-        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&blur=2&brightness=45'
+        'https://dreamterpretation.com/wp-content/uploads/2024/06/interpreting_anxiety_through_dreams.jpg'
       ],
       'Neutral': [
-        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&sat=10&brightness=5'
+        'https://dreamterpretation.com/wp-content/uploads/2024/06/interpreting_anxiety_through_dreams.jpg'
       ]
     }
     

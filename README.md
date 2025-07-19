@@ -1,5 +1,37 @@
 # Svapna AI - The Dream Decoder
 
+💻 TinkerSpace Badge
+Built something awesome at TinkerSpace?
+Don’t let it go unnoticed.
+Use this badge to proudly showcase your work and show others you were there, building something real.
+
+🌟 What Is This?
+The TinkerSpace Badge is more than a sticker. It’s your proof that you didn’t just talk about building—you actually did it.
+It tells the world you were part of something hands-on, something that matters.
+
+Projects fade. But when you wear this badge, people know you were in the room where it happened.
+
+✅ Who Can Use It?
+This badge is for:
+
+🛠 Makers who’ve built or contributed to projects at TinkerSpace
+👩‍💻 Hackathon participants
+📣 Supporters of hands-on learning and tech-for-good
+💡 Anyone who doesn’t just scroll, but actually builds
+📌 Why You Should Use This Badge
+✔ Show you’re a real builder, not just a watcher
+✔ Help others discover cool TinkerSpace projects
+✔ Become part of the maker story—someone who inspires others
+✔ It’s proof you took part in a growing community of doers
+
+If your README doesn’t say “Built at TinkerSpace,” did you really build it at TinkerSpace?
+
+🧩 How to Use
+Copy the code below into your README, profile, or docs:
+
+[![💻 Built at TinkerSpace](https://img.shields.io/badge/Built%20at-TinkerSpace-blueviolet?style=for-the-badge&label=%F0%9F%92%BBBuilt%20at&labelColor=turquoise&color=white)](https://tinkerhub.org/tinkerspace)
+
+
 A modern web application that uses AI to analyze and interpret dreams, providing psychological insights, spiritual interpretations, and visual dreamscapes.
 
 ## 🌟 Features
@@ -20,65 +52,6 @@ A modern web application that uses AI to analyze and interpret dreams, providing
 - **Charts**: Chart.js + react-chartjs-2
 - **Icons**: Heroicons
 
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Node.js 18+ 
-- Supabase account
-- Google Gemini API key
-- OpenAI API key (for DALL-E)
-
-### 1. Clone and Install
-
-```bash
-git clone <repository-url>
-cd svapna-ai-dream-decoder
-npm install
-```
-
-### 2. Set Up Supabase
-
-1. Create a new Supabase project
-2. Run the SQL schema in your Supabase SQL Editor:
-
-```sql
--- Copy and paste the contents of database-schema.sql
-```
-
-3. Get your Supabase URL and anon key from Settings > API
-
-### 3. Configure Environment Variables
-
-Create a `.env` file in the root directory:
-
-```env
-# Supabase Configuration
-VITE_SUPABASE_URL=YOUR_SUPABASE_URL
-VITE_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
-
-# AI APIs
-GEMINI_API_KEY=YOUR_GEMINI_API_KEY
-DALLE_API_KEY=YOUR_OPENAI_API_KEY
-
-# Supabase Service Role Key (for Edge Functions)
-SUPABASE_SERVICE_ROLE_KEY=YOUR_SUPABASE_SERVICE_ROLE_KEY
-```
-
-### 4. Deploy Edge Function
-
-1. Install Supabase CLI: `npm install -g supabase`
-2. Login: `supabase login`
-3. Link your project: `supabase link --project-ref YOUR_PROJECT_REF`
-4. Deploy the function: `supabase functions deploy decode-dream`
-
-### 5. Run the Application
-
-```bash
-npm run dev
-```
-
-Visit `http://localhost:5173` to see your app!
 
 ## 📁 Project Structure
 
@@ -104,76 +77,6 @@ svapna-ai-dream-decoder/
 ├── database-schema.sql      # Database schema
 └── package.json
 ```
-
-## 🔧 Configuration
-
-### Supabase Setup
-
-1. **Authentication**: Enable Email and Social providers in Authentication > Settings
-2. **Database**: Run the schema SQL to create tables and policies
-3. **Edge Functions**: Deploy the `decode-dream` function with environment variables
-
-### API Keys
-
-- **Google Gemini**: Get from [Google AI Studio](https://makersuite.google.com/app/apikey)
-- **OpenAI**: Get from [OpenAI Platform](https://platform.openai.com/api-keys)
-
-## 🎨 Customization
-
-### Styling
-
-The app uses Tailwind CSS with a custom dark theme. Main colors:
-- Primary: Purple (`#a855f7`)
-- Gold: Accent (`#f59e0b`)
-- Dark: Background (`#0f172a`)
-
-### AI Prompts
-
-Modify the prompts in `supabase/functions/decode-dream/index.ts` to customize:
-- Dream interpretation style
-- Image generation prompts
-- Analysis depth
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-1. Connect your GitHub repository to Vercel
-2. Set environment variables in Vercel dashboard
-3. Deploy!
-
-### Netlify
-
-1. Build: `npm run build`
-2. Deploy the `dist` folder
-3. Set environment variables
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## 📄 License
-
-MIT License - see LICENSE file for details
-
-## 🙏 Acknowledgments
-
-- Google Gemini for AI analysis
-- OpenAI DALL-E for image generation
-- Supabase for backend services
-- Chart.js for data visualization
-
-## 🆘 Support
-
-If you encounter any issues:
-
-1. Check the browser console for errors
-2. Verify all environment variables are set
-3. Ensure Supabase Edge Function is deployed
-4. Check API key permissions
 
 ---
 
