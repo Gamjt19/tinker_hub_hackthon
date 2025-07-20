@@ -52,6 +52,8 @@ A modern web application that uses AI to analyze and interpret dreams, providing
 - **Charts**: Chart.js + react-chartjs-2
 - **Icons**: Heroicons
 
+- Demo Video : https://drive.google.com/file/d/1MnrEBnsBUTzATq_ZChFLI4tNypQp-Sr8/view?usp=sharing
+
 
 ## 📁 Project Structure
 
